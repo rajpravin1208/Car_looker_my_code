@@ -1,6 +1,6 @@
 view: important_dimensions {
 
-  # dimensions that are necessary for all the views
+ dimensions that are necessary for all the views
 
   dimension: base_entity {
     type: string
@@ -113,12 +113,12 @@ view: important_dimensions {
     sql: ${TABLE}.metric_name ;;
   }
 
-  # measure: amount {
-  #   description: "Sum of amount"
-  #   hidden: no
-  #   type: sum
-  #   sql: ${TABLE}.amount ;;
-  # }
+ measure: amount {
+   description: "Sum of amount"
+   hidden: no
+   type: sum
+   sql: ${TABLE}.amount ;;
+ }
 
   measure: Periodic {
     description: "Sum of amount (in millions), rounded to 2 decimal places, for actual scenarios"
@@ -148,42 +148,42 @@ view: important_dimensions {
 
 
 
-  # measure: Roll12_Periodic {
-  #   description: "Sum of amount (in millions), rounded to 2 decimal places, for actual scenarios"
-  #   hidden: no
-  #   type: number
-  #   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Roll12' AND ${TABLE}.view = 'Periodic' THEN ${TABLE}.amount ELSE 0 END) / 1, 0)
-  #     ;;
-  # }
+ measure: Roll12_Periodic {
+   description: "Sum of amount (in millions), rounded to 2 decimal places, for actual scenarios"
+   hidden: no
+   type: number
+   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Roll12' AND ${TABLE}.view = 'Periodic' THEN ${TABLE}.amount ELSE 0 END) / 1, 0)
+     ;;
+ }
 
-  # measure: Roll12_YTD {
-  #   description: "Sum of amount (in millions), rounded to 2 decimal places, for actual scenarios"
-  #   hidden: no
-  #   type: number
-  #   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Roll12' AND ${TABLE}.view = 'YTD' THEN ${TABLE}.amount ELSE 0 END) / 1, 0)
-  #     ;;
-  # }
+ measure: Roll12_YTD {
+   description: "Sum of amount (in millions), rounded to 2 decimal places, for actual scenarios"
+   hidden: no
+   type: number
+   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Roll12' AND ${TABLE}.view = 'YTD' THEN ${TABLE}.amount ELSE 0 END) / 1, 0)
+     ;;
+ }
 
-  # measure: Roll12_QTD {
-  #   description: "Sum of amount (in millions), rounded to 2 decimal places, for actual scenarios"
-  #   hidden: no
-  #   type: number
-  #   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Roll12' AND ${TABLE}.view = 'QTD' THEN ${TABLE}.amount ELSE 0 END) / 1, 0)
-  #     ;;
-  # }
+ measure: Roll12_QTD {
+   description: "Sum of amount (in millions), rounded to 2 decimal places, for actual scenarios"
+   hidden: no
+   type: number
+   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Roll12' AND ${TABLE}.view = 'QTD' THEN ${TABLE}.amount ELSE 0 END) / 1, 0)
+     ;;
+ }
 
 
-  # measure: budget {
-  #   description: "Sum of amount (in millions), rounded to 2 decimal places, for budget scenarios"
-  #   hidden: no
-  #   type: number
-  #   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Budget' THEN ${TABLE}.amount ELSE 0 END) / 1000000, 0) ;;
-  # }
+ measure: budget {
+   description: "Sum of amount (in millions), rounded to 2 decimal places, for budget scenarios"
+   hidden: no
+   type: number
+   sql: ROUND(SUM(CASE WHEN ${TABLE}.scenario = 'Budget' THEN ${TABLE}.amount ELSE 0 END) / 1000000, 0) ;;
+ }
 
-  # measure: Overall_Year {
-  #   type: number
-  #   sql: SUM(amount)/1000000 ;;
-  #   value_format_name: decimal_2
-  # }
+ measure: Overall_Year {
+   type: number
+   sql: SUM(amount)/1000000 ;;
+   value_format_name: decimal_2
+   }
 
   }
